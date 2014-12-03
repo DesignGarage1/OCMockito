@@ -93,6 +93,20 @@
         [self useExistingAnswerInStub:stubbedInvocation forInvocation:invocation];
 }
 
+- (BOOL)answerStubbedInvocation:(NSInvocation *)invocation
+{
+    MKTStubbedInvocationMatcher *stubbedInvocation = [_invocationContainer findAnswerFor:invocation];
+    if (stubbedInvocation) {
+        [self useExistingAnswerInStub:stubbedInvocation forInvocation:invocation];
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)hasAnswerForSelector:(SEL)sel {
+    return [_invocationContainer hasAnswerForSelector:sel];
+}
+
 - (void)useExistingAnswerInStub:(MKTStubbedInvocationMatcher *)stub forInvocation:(NSInvocation *)invocation
 {
     [invocation mkt_setReturnValue:stub.answer];

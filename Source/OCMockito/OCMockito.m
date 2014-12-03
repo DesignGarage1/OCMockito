@@ -12,6 +12,7 @@ static BOOL isValidMockClass(id mock)
 {
     NSString *className = NSStringFromClass([mock class]);
     return [className isEqualToString:@"MKTObjectMock"] ||
+            [className isEqualToString:@"MKTPartialMock"] ||
             [className isEqualToString:@"MKTProtocolMock"] ||
             [className isEqualToString:@"MKTClassObjectMock"] ||
             [className isEqualToString:@"MKTObjectAndProtocolMock"];

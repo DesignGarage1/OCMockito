@@ -17,4 +17,5 @@
 - (void)setMatcher:(id <HCMatcher>)matcher atIndex:(NSUInteger)argumentIndex;
 - (void)addAnswer:(id)answer;
 - (MKTStubbedInvocationMatcher *)findAnswerFor:(NSInvocation *)invocation;
+- (BOOL)hasAnswerForSelector:(SEL)sel;
 @end

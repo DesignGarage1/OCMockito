@@ -58,4 +58,11 @@
     return nil;
 }
 
+- (BOOL)hasAnswerForSelector:(SEL)sel {
+    for (MKTStubbedInvocationMatcher *s in _stubbed)
+        if ([s.expected selector] == sel)
+            return YES;
+    return NO;
+}
+
 @end
